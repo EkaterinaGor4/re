@@ -45,7 +45,9 @@ for i in range(len(result_list)):
 
 
 with open("phonebook.csv", "w", encoding='utf-8') as f:
-    datawriter = csv.writer(f, delimiter=",")
-    datawriter.writerows(result_dict)
+    datawriter = csv.writer(f)
+    for row in result_dict.values():
+        datawriter.writerow(row.values())
+
 
 pprint.pprint(result_dict)
